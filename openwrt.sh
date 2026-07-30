@@ -29,7 +29,7 @@ echo "==============================adding initramfs-factory.ubi artifact to JID
 # Add initramfs-factory.ubi artifact to JIDU6101 and JIDU6J01
 FILOGIC_MK="target/linux/mediatek/image/filogic.mk"
 
-for DEV in jiorouter_ax6000-jidu6101 jiorouter_ax6000-jidu6j01; do
+for DEV in jiorouter_ax6000-jidu6j01; do
   # Skip if this device already has the artifact (idempotent)
   if awk "/^define Device\/${DEV}\$/,/^endef/" "$FILOGIC_MK" | grep -q "initramfs-factory.ubi"; then
     echo "[$DEV] initramfs-factory.ubi already present, skipping"
