@@ -24,11 +24,11 @@ git log pr-23510 --oneline --grep="jio\|jidu" --regexp-ignore-case --format="%H"
   grep -v $(git log --format="%H" | head -100 | tr '\n' '\|' | sed 's/|$//') | \
   xargs git cherry-pick -X theirs
 
-echo "==============================adding initramfs-factory.ubi artifact to JIDU6101 and JIDU6J01=============================="
-# Add initramfs-factory.ubi artifact to JIDU6101 and JIDU6J01
+echo "==============================adding initramfs-factory.ubi artifact to JIDU6J01=============================="
+# Add initramfs-factory.ubi artifact to JIDU6J01
 FILOGIC_MK="target/linux/mediatek/image/filogic.mk"
 
-for DEV in jiorouter_ax6000-jidu6101 jiorouter_ax6000-jidu6j01; do
+for DEV in jiorouter_ax6000-jidu6j01; do
   # Skip if this device already has the artifact (idempotent)
   if awk "/^define Device\/${DEV}\$/,/^endef/" "$FILOGIC_MK" | grep -q "initramfs-factory.ubi"; then
     echo "[$DEV] initramfs-factory.ubi already present, skipping"
