@@ -1,4 +1,4 @@
-name: Immortal Build for JIDU6101 and JIDU6J01
+name: Immortal Build for JIDU6J01
 
 on:
   push:
@@ -14,11 +14,6 @@ jobs:
       fail-fast: false
       matrix:
         device:
-          - name: jidu6101
-            config: configs/.config-jidu6101
-          - name: jidu6101-mesh
-            config: configs/.config-jidu6101-mesh
-
           - name: jidu6j01 # jidu6201/6401/6601/6701
             config: configs/.config-jidu6j01
           - name: jidu6j01-mesh # jidu6201/6401/6601/6701
