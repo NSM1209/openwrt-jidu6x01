@@ -3,7 +3,6 @@ name: Immortal Build for JIDU6J01
 on:
   push:
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
